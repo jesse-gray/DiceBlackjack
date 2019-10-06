@@ -16,21 +16,21 @@ public class GameEngineTest {
     @Test
     public void checkScore_whileScoreIs0_shouldReturnTrue () {
         boolean checkResult = gameEngine.checkScoreValid(gameEngine.getUser());
-        assertEquals("The player score of 0 should return true", true, checkResult);
+        assertTrue("The player score of 0 should return true", checkResult);
     }
 
     @Test
     public void checkScore_whileScoreIs21_shouldReturnFalse () {
         gameEngine.getUser().setPlayerScore(21);
         boolean checkResult = gameEngine.checkScoreValid(gameEngine.getUser());
-        assertEquals("The player score of 21 should return false", false, checkResult);
+        assertFalse("The player score of 21 should return false", checkResult);
     }
 
     @Test
     public void checkScore_whileScoreIs22_shouldReturnFalse () {
         gameEngine.getUser().setPlayerScore(22);
         boolean checkResult = gameEngine.checkScoreValid(gameEngine.getUser());
-        assertEquals("The player score of 21 should return false", false, checkResult);
+        assertFalse("The player score of 21 should return false", checkResult);
     }
 
     @Test
