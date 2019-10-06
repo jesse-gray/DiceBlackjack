@@ -57,7 +57,7 @@ public class GameEngineTest {
     public void calculateWinner_whileScoresAre0_shouldReturnNull () {
         // TODO: 06-Oct-19
         Player winner = gameEngine.calculateWinner();
-        assertEquals("While scores are the same, winner should be null", null, winner);
+        assertNull("While scores are the same, winner should be null", winner);
     }
 
     @Test
@@ -69,17 +69,29 @@ public class GameEngineTest {
     }
 
     @Test
-    public void calculateWinner_whileUserScoreIs22_shouldReturnUser () {
+    public void calculateWinner_whileUserScoreIs22_shouldReturnDealer () {
         // TODO: 06-Oct-19
+        gameEngine.getUser().setScore(22);
+        Player winner = gameEngine.calculateWinner();
+        Player dealer = gameEngine.getDealer();
+        assertEquals("While user score is over 21, dealer should win", dealer, winner);
     }
 
     @Test
     public void calculateWinner_whileDealerScoreIsHigher_shouldReturnDealer () {
         // TODO: 06-Oct-19
+        gameEngine.getDealer().setScore(1);
+        Player winner = gameEngine.calculateWinner();
+        Player dealer = gameEngine.getDealer();
+        assertEquals("While user dealer is higher, dealer should win", dealer, winner);
     }
 
     @Test
-    public void calculateWinner_whileDealerScoreIs22_shouldReturnDealer () {
+    public void calculateWinner_whileDealerScoreIs22_shouldReturnUser () {
         // TODO: 06-Oct-19
+        gameEngine.getDealer().setScore(22);
+        Player winner = gameEngine.calculateWinner();
+        Player dealer = gameEngine.getDealer();
+        assertEquals("While user score is higher, user should win", dealer, winner);
     }
 }
