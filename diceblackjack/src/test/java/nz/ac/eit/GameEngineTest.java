@@ -30,7 +30,7 @@ public class GameEngineTest {
     public void checkScore_whileScoreIs22_shouldReturnFalse () {
         gameEngine.getUser().setPlayerScore(22);
         boolean checkResult = gameEngine.checkScoreValid(gameEngine.getUser());
-        assertFalse("The player score of 21 should return false", checkResult);
+        assertFalse("The player score of 22 should return false", checkResult);
     }
 
     @Test
@@ -59,7 +59,8 @@ public class GameEngineTest {
     public void calculateWinner_whileUserScoreIsHigher_shouldReturnUser () {
         gameEngine.getUser().setPlayerScore(1);
         Player winner = gameEngine.calculateWinner();
-        assertEquals("While user score is higher, user should win", gameEngine.getUser(), winner);
+        Player user = gameEngine.getUser();
+        assertEquals("While user score is higher, user should win", user, winner);
     }
 
     @Test
@@ -75,14 +76,14 @@ public class GameEngineTest {
         gameEngine.getDealer().setPlayerScore(1);
         Player winner = gameEngine.calculateWinner();
         Player dealer = gameEngine.getDealer();
-        assertEquals("While user dealer is higher, dealer should win", dealer, winner);
+        assertEquals("While dealer score is higher, dealer should win", dealer, winner);
     }
 
     @Test
     public void calculateWinner_whileDealerScoreIs22_shouldReturnUser () {
         gameEngine.getDealer().setPlayerScore(22);
         Player winner = gameEngine.calculateWinner();
-        Player dealer = gameEngine.getDealer();
-        assertEquals("While user score is higher, user should win", dealer, winner);
+        Player user = gameEngine.getUser();
+        assertEquals("While dealer score is over 21, user should win", user, winner);
     }
 }
