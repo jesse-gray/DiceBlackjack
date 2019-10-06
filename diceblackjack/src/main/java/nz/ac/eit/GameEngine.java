@@ -10,15 +10,14 @@ public class GameEngine {
 
     //Runs through the entire dealer turn
     public void dealerTurn() {
-        while(dealer.getScore() < 16) {
+        while(dealer.getPlayerScore() < 16) {
             hit(dealer);
         }
-        checkScore(dealer);
     }
 
     //Checks to see if a player can keep playing
     public boolean checkScoreValid(Player player) {
-        if (player.getScore() >= 21) {
+        if (player.getPlayerScore() >= 21) {
             return false;
         } else{
             return true;
@@ -29,16 +28,15 @@ public class GameEngine {
     public void hit(Player player) {
         int turnScore = 0;
         for(int i = 0; i < 2; i++){
-            turnScore += die.Roll();
+            turnScore += die.roll();
         }
         player.updateScore(turnScore);
-        checkScore(player);
     }
 
     //Calculates the outcome of the game, null is a draw.
     public Player calculateWinner() {
-        int userScore = user.getScore();
-        int dealerScore = dealer.getScore();
+        int userScore = user.getPlayerScore();
+        int dealerScore = dealer.getPlayerScore();
         if(userScore <= 21 && userScore > dealerScore){
             return user;
         }
