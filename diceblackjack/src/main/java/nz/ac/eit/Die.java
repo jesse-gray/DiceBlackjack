@@ -1,6 +1,6 @@
 package nz.ac.eit;
 
-import static  java.lang.Math;
+import java.lang.Math;
 
 
 public class Die {
