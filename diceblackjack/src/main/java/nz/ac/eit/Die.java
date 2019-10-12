@@ -7,6 +7,9 @@ public class Die {
 
     private int value;
 
+    public Die(){
+    }
+
     public int roll() {
         value=(int)(Math.random()*6)+1;
         return value;
