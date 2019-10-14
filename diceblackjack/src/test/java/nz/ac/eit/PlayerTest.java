@@ -30,12 +30,14 @@ public class PlayerTest {
 
     @Test
     public void ifPlayerScoreis20_andDieRoll1_shouldReturnTrue() {
+        player.setPlayerScore(20);
         player.updateScore(1);
         assertTrue("The score should be 6", player.getPlayerScore()==21);
     }
 
     @Test
     public void ifPlayerScoreis20_andDieRoll6_shouldReturnTrue() {
+        player.setPlayerScore(20);
         player.updateScore(6);
         assertTrue("The score should be 6", player.getPlayerScore()==26);
     }
@@ -44,6 +46,7 @@ public class PlayerTest {
 
     @Test
     public void ifPlayerScoreis10_andDieRoll3_shouldReturnTrue() {
+        player.setPlayerScore(10);
         player.updateScore(3);
         assertTrue("The score should be 6", player.getPlayerScore()==13);
     }
