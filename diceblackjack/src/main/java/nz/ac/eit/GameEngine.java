@@ -5,8 +5,7 @@ public class GameEngine {
     private Player user = new Player();
     private Player dealer = new Player();
 
-    public GameEngine(){
-    }
+    public GameEngine(){}
 
     //Runs through the entire dealer turn
     public void dealerTurn() {
@@ -37,7 +36,7 @@ public class GameEngine {
     public Player calculateWinner() {
         int userScore = user.getPlayerScore();
         int dealerScore = dealer.getPlayerScore();
-        if(userScore <= 21 && userScore > dealerScore){
+        if(userScore <= 21 && (userScore > dealerScore || dealerScore > 21)){
             return user;
         }
         else if(userScore == dealerScore){
