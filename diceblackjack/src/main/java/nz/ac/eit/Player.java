@@ -4,7 +4,7 @@ public class Player {
     private int playerScore;
 
     public Player() {
-
+        this.playerScore = 0;
     }
 
     public void setPlayerScore(int score){
